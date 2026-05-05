@@ -1,8 +1,11 @@
 # Modèle Streamlit GAEA — Scripts & Utilisation
 
 > Ce dépôt contient des **modèles Streamlit** destinés à la formation des stagiaires (FR/EN).
+
 > Les scripts du dossier `2_Scriptes/` peuvent évoluer ; ce README reste valide même quand de nouveaux
 > fichiers sont ajoutés ou renommés.
+
+> https://gaea-trends-agriculture.streamlit.app/
 
 ---
 
