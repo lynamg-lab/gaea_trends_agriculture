@@ -71,7 +71,7 @@ APP_TITLE   = "Tableau de bord Émissions — Émissions du cheptel & Stocks"
 
 # Chemin absolu vers votre fichier CSV préparé.
 # Remplacez par le chemin de votre propre fichier.
-CSV_PATH = r"C:\Users\lynam\Documents\01_steamlit_gaea_template_tutorial\1_Donnees\Emissions_livestock_E_Europe_PROPRE_indicateur.csv"
+CSV_PATH = Path(__file__).parent.parent / "1_Donnees" / "Emissions_livestock_E_Europe_PROPRE_indicateur.csv"
 
 # Colonnes de votre CSV — noms exacts tels qu'ils apparaissent dans le fichier.
 COL_COUNTRY  = "Area 3"           # Colonne contenant les noms de pays/zones
