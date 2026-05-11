@@ -343,6 +343,16 @@ tab_ts, tab_pie, tab_map = st.tabs(["Séries temporelles", "Composition", "Carte
 
 with tab_ts:
 
+    st.markdown("""
+### Tendances générales — Émissions du cheptel en Europe (UE)
+
+Entre 1990 et 2022, les émissions totales du cheptel dans l'Union européenne ont diminué de **364 300 kt CO₂eq à 280 600 kt CO₂eq**, soit une réduction de **23 %** sur la période. Cette baisse reflète à la fois la contraction des effectifs animaux et des gains d'efficacité dans les systèmes d'élevage.
+
+Parmi les grands pays émetteurs, **l'Allemagne** enregistre la chute la plus marquée (−43 %, de 71 600 à 41 100 kt), suivie de la **Pologne** (−42 %, de 35 600 à 20 500 kt), en lien avec les restructurations agricoles post-1990. **La France**, premier émetteur de l'UE avec 52 600 kt en 2022, affiche une baisse plus progressive (−24 %). À l'inverse, **l'Espagne** voit ses émissions augmenter légèrement (+12 %, de 30 200 à 33 900 kt), portée par la croissance de son secteur porcin. **L'Irlande** reste stable autour de 19 000–20 000 kt, maintenant un niveau élevé rapporté à sa superficie, reflet d'un élevage bovin extensif très développé.
+
+> *Utilisez le curseur d'années et les filtres de pays pour explorer ces tendances en détail.*
+""")
+
     # --- Barre latérale : indicateur et plage d'années ---
     # st.sidebar place les widgets dans le panneau latéral gauche.
     # st.selectbox crée un menu déroulant ; st.slider un curseur double.
@@ -564,6 +574,28 @@ with tab_ts:
 # Utilise les données "aggregated" (niveau intermédiaire) pour une lecture claire.
 
 with tab_pie:
+
+    st.markdown("""
+### Structure des émissions par groupe animal — UE 2022
+
+En 2022, les émissions du cheptel de l'Union européenne sont très fortement concentrées sur les **bovins**, qui représentent **74,6 %** du total (environ 206 900 kt CO₂eq). Cette dominance s'explique par les émissions de méthane entérique propres aux ruminants, qui constituent le principal poste d'émission agricole.
+
+Viennent ensuite les **porcins** (13,9 %, ~38 600 kt), les **ovins et caprins** (7,8 %, ~21 700 kt), et les **volailles** (3,7 %, ~10 300 kt).
+
+**Évolution des effectifs entre 1990 et 2022 (UE) :**
+
+| Groupe | 1990 | 2022 | Variation |
+|---|---|---|---|
+| Bovins | 96,0 M têtes | 74,7 M têtes | −22 % |
+| Ovins et caprins | 113,3 M têtes | 69,7 M têtes | −39 % |
+| Porcins | 151,0 M têtes | 134,1 M têtes | −11 % |
+| Volailles | 1 135 M têtes | 1 562 M têtes | **+38 %** |
+
+La baisse des effectifs bovins et ovins explique en grande partie la réduction globale des émissions. La forte croissance des volailles ne pèse pas autant sur le bilan carbone car ces animaux émettent beaucoup moins de méthane entérique par tête que les ruminants.
+
+> *Sélectionnez un pays ou une région dans le menu pour comparer la structure de ses émissions.*
+""")
+
     st.subheader("Parts par groupe agrégé (camembert)")
     st.caption(f"Indicateur : {INDICATOR_PIE}")
 
@@ -720,6 +752,28 @@ with tab_pie:
 # Utilise Plotly Express (bibliothèque externe — requiert une installation séparée).
 
 with tab_map:
+
+    st.markdown("""
+### Répartition géographique des émissions — UE
+
+En 2022, les émissions du cheptel au sein de l'UE sont inégalement distribuées entre les États membres. Les **trois premiers pays** (France, Allemagne, Espagne) concentrent à eux seuls **45,5 %** des émissions totales de l'Union, qui s'élèvent à environ **280 600 kt CO₂eq**.
+
+**Classement des principaux pays émetteurs (2022) :**
+
+| Rang | Pays | Émissions (kt CO₂eq) | Part UE |
+|---|---|---|---|
+| 1 | France | 52 600 | 18,7 % |
+| 2 | Allemagne | 41 100 | 14,6 % |
+| 3 | Espagne | 33 900 | 12,1 % |
+| 4 | Italie | 25 200 | 9,0 % |
+| 5 | Pologne | 20 500 | 7,3 % |
+| 6 | Irlande | 19 700 | 7,0 % |
+
+L'**Irlande** se distingue particulièrement : avec seulement 5 millions d'habitants, elle figure parmi les six premiers émetteurs de l'UE, portée par un secteur bovin et laitier orienté largement vers l'export. À l'opposé, des pays comme **Malte**, **le Luxembourg** ou les **États baltes** présentent des niveaux très faibles, cohérents avec la taille réduite de leur secteur agricole.
+
+> *Utilisez le sélecteur d'année pour observer l'évolution géographique des émissions dans le temps.*
+""")
+
     st.subheader(f"Carte des totaux — {MAP_REGION} (groupe Tous uniquement)")
 
     years_available = sorted(df[COL_YEAR].unique().tolist(), reverse=True)
